@@ -27,4 +27,4 @@ before_install:
 
 install: composer update $COMPOSER_FLAGS
 
-script: ./phpunit
+script: vendor/bin/phpunit
