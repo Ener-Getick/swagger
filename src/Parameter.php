@@ -39,7 +39,7 @@ final class Parameter extends AbstractModel
     /** @var bool|null */
     private $allowEmptyValue;
 
-    public function __construct(array $data = [])
+    public function __construct($data = [])
     {
         $data = $this->normalize($data);
         $this->merge($data);

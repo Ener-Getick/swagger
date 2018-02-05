@@ -25,7 +25,7 @@ final class License extends AbstractModel
     /** @var string */
     private $name;
 
-    public function __construct(array $data = [])
+    public function __construct($data = [])
     {
         $this->merge($data);
     }

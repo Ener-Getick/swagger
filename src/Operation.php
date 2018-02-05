@@ -46,7 +46,7 @@ final class Operation extends AbstractModel
     /** @var bool */
     private $deprecated;
 
-    public function __construct(array $data = [])
+    public function __construct($data = [])
     {
         $this->merge($data);
     }

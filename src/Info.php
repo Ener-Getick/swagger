@@ -37,7 +37,7 @@ final class Info extends AbstractModel
     /** @var string */
     private $version;
 
-    public function __construct(array $data = [])
+    public function __construct($data = [])
     {
         $this->contact = new Contact();
         $this->license = new License();

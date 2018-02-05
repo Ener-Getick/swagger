@@ -20,7 +20,7 @@ final class Definitions extends AbstractModel implements \IteratorAggregate
 
     private $definitions = [];
 
-    public function __construct(array $data = [])
+    public function __construct($data = [])
     {
         $this->merge($data);
     }

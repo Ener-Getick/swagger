@@ -21,7 +21,7 @@ final class Responses extends AbstractModel implements \IteratorAggregate
 
     private $responses = [];
 
-    public function __construct(array $data = [])
+    public function __construct($data = [])
     {
         $this->merge($data);
     }

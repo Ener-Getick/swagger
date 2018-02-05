@@ -35,7 +35,7 @@ trait RefPart
     /**
      * @param string|null $ref
      *
-     * @return RefPart
+     * @return $this
      */
     public function setRef($ref)
     {

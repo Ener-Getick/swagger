@@ -23,7 +23,7 @@ final class Header extends AbstractModel
     use ItemsPart;
     use ExtensionPart;
 
-    public function __construct(array $data = [])
+    public function __construct($data = [])
     {
         $this->merge($data);
     }

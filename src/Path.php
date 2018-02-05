@@ -21,7 +21,7 @@ final class Path extends AbstractModel
 
     private $operations = [];
 
-    public function __construct(array $data = [])
+    public function __construct($data = [])
     {
         $this->merge($data);
     }

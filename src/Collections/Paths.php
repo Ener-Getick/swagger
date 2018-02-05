@@ -23,7 +23,7 @@ final class Paths extends AbstractModel implements \IteratorAggregate
 
     private $paths = [];
 
-    public function __construct(array $data = [])
+    public function __construct($data = [])
     {
         $this->merge($data);
     }

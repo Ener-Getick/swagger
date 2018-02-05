@@ -30,7 +30,7 @@ final class Response extends AbstractModel
     /** @var Headers */
     private $headers;
 
-    public function __construct(array $data = [])
+    public function __construct($data = [])
     {
         $this->headers = new Headers();
 

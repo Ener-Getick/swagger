@@ -20,7 +20,7 @@ final class Headers extends AbstractModel implements \IteratorAggregate
 
     private $headers = [];
 
-    public function __construct(array $data = [])
+    public function __construct($data = [])
     {
         $this->merge($data);
     }

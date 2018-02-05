@@ -29,7 +29,7 @@ final class Contact extends AbstractModel
     /** @var string */
     private $email;
 
-    public function __construct(array $data = [])
+    public function __construct($data = [])
     {
         $this->merge($data);
     }

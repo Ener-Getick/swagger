@@ -67,7 +67,7 @@ final class Swagger extends AbstractModel
         return new static(json_decode(file_get_contents($filename), true));
     }
 
-    public function __construct(array $data = [])
+    public function __construct($data = [])
     {
         $this->info = new Info();
         $this->definitions = new Definitions();

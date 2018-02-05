@@ -23,7 +23,7 @@ final class Parameters extends AbstractModel implements \IteratorAggregate
 
     private $parameters = [];
 
-    public function __construct(array $data = [])
+    public function __construct($data = [])
     {
         $this->merge($data);
     }
