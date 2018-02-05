@@ -3,6 +3,7 @@ language: php
 php:
   - 7.0
   - 7.1
+  - 7.2
 
 sudo: false
 
@@ -25,3 +26,5 @@ before_install:
   - composer self-update
 
 install: composer update $COMPOSER_FLAGS
+
+script: ./phpunit

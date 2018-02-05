@@ -21,26 +21,26 @@ use EXSyst\Component\Swagger\Path;
 use EXSyst\Component\Swagger\Response;
 use EXSyst\Component\Swagger\Schema;
 use EXSyst\Component\Swagger\Swagger;
+use PHPUnit\Framework\TestCase;
 
-class CollectionsTest extends \PHPUnit_Framework_TestCase
+class CollectionsTest extends TestCase
 {
     public function testDefinitions()
     {
         $swagger = new Swagger();
         $definitions = $swagger->getDefinitions();
 
-        $this->assertTrue($definitions instanceof Definitions);
+        $this->assertInstanceOf(Definitions::class, $definitions);
         $this->assertNull($definitions->toArray());
         $this->assertFalse($definitions->has('User'));
 
         $user = new Schema();
         $definitions->set('User', $user);
-        $this->assertEquals(1, count($definitions->toArray()));
+        $this->assertCount(1, $definitions->toArray());
         $this->assertTrue($definitions->has('User'));
-        $this->assertTrue($definitions->get('User') instanceof Schema);
         $this->assertSame($user, $definitions->get('User'));
 
-        $this->assertTrue(is_array($definitions->toArray()['User']));
+        $this->assertInternalType('array', $definitions->toArray()['User']);
 
         $definitions->remove('User');
         $this->assertNull($definitions->toArray());
@@ -52,19 +52,18 @@ class CollectionsTest extends \PHPUnit_Framework_TestCase
         $swagger = new Swagger();
         $paths = $swagger->getPaths();
 
-        $this->assertTrue($paths instanceof Paths);
+        $this->assertInstanceOf(Paths::class, $paths);
         $this->assertNull($paths->toArray());
         $this->assertFalse($paths->has('/pets'));
 
         $pets = new Path();
         $paths->set('/pets', $pets);
 
-        $this->assertEquals(1, count($paths->toArray()));
+        $this->assertCount(1, $paths->toArray());
         $this->assertTrue($paths->has('/pets'));
-        $this->assertTrue($paths->get('/pets') instanceof Path);
         $this->assertSame($pets, $paths->get('/pets'));
 
-        $this->assertTrue(is_array($paths->toArray()['/pets']));
+        $this->assertInternalType('array', $paths->toArray()['/pets']);
 
         $paths->remove('/pets');
         $this->assertNull($paths->toArray());
@@ -76,7 +75,7 @@ class CollectionsTest extends \PHPUnit_Framework_TestCase
         $path = new Path();
         $parameters = $path->getOperation('get')->getParameters();
 
-        $this->assertTrue($parameters instanceof Parameters);
+        $this->assertInstanceOf(Parameters::class, $parameters);
         $this->assertNull($parameters->toArray());
 
         $id = new Parameter([
@@ -84,18 +83,16 @@ class CollectionsTest extends \PHPUnit_Framework_TestCase
             'in' => 'path',
         ]);
         $parameters->add($id);
-        $this->assertEquals(1, count($parameters->toArray()));
+        $this->assertCount(1, $parameters->toArray());
         $this->assertTrue($parameters->has('id', 'path'));
-        $this->assertTrue($parameters->get('id', 'path') instanceof Parameter);
 
         $id2 = new Parameter([
             'name' => 'id',
             'in' => 'body',
         ]);
         $parameters->add($id2);
-        $this->assertEquals(2, count($parameters->toArray()));
+        $this->assertCount(2, $parameters->toArray());
         $this->assertTrue($parameters->has('id', 'body'));
-        $this->assertTrue($parameters->get('id', 'body') instanceof Parameter);
         $this->assertSame($id, $parameters->get('id', 'path'));
         $this->assertSame($id2, $parameters->get('id', 'body'));
 
@@ -103,8 +100,8 @@ class CollectionsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('bar', $parameter->getName());
         $this->assertEquals('query', $parameter->getIn());
 
-        $this->assertTrue(is_array($parameters->toArray()[0]));
-        $this->assertTrue(is_array($parameters->toArray()[1]));
+        $this->assertInternalType('array', $parameters->toArray()[0]);
+        $this->assertInternalType('array', $parameters->toArray()[1]);
 
         $parameters->remove($id);
         $parameters->remove($id2);
@@ -121,21 +118,21 @@ class CollectionsTest extends \PHPUnit_Framework_TestCase
         $operation = new Operation();
         $responses = $operation->getResponses();
 
-        $this->assertTrue($responses instanceof Responses);
-        $this->assertEquals(0, count($responses->toArray()));
+        $this->assertInstanceOf(Responses::class, $responses);
+        $this->assertCount(0, $responses->toArray());
         $this->assertFalse($responses->has('200'));
 
         $ok = new Response();
         $responses->set('200', $ok);
-        $this->assertEquals(1, count($responses->toArray()));
+        $this->assertCount(1, $responses->toArray());
         $this->assertTrue($responses->has('200'));
-        $this->assertTrue($responses->get('200') instanceof Response);
+        $this->assertInstanceOf(Response::class, $responses->get('200'));
         $this->assertSame($ok, $responses->get('200'));
 
-        $this->assertTrue(is_array($responses->toArray()['200']));
+        $this->assertInternalType('array', $responses->toArray()['200']);
 
         $responses->remove('200');
-        $this->assertEquals(0, count($responses->toArray()));
+        $this->assertCount(0, $responses->toArray());
         $this->assertFalse($responses->has('200'));
     }
 }

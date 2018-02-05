@@ -12,8 +12,9 @@
 namespace EXSyst\Component\Swagger\tests;
 
 use EXSyst\Component\Swagger\Swagger;
+use PHPUnit\Framework\TestCase;
 
-class BasicAuth extends \PHPUnit_Framework_TestCase
+class BasicAuthTest extends TestCase
 {
     private function fileToArray($filename)
     {

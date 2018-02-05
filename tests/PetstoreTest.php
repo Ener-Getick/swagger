@@ -12,8 +12,9 @@
 namespace EXSyst\Component\Swagger\tests;
 
 use EXSyst\Component\Swagger\Swagger;
+use PHPUnit\Framework\TestCase;
 
-class PetstoreTest extends \PHPUnit_Framework_TestCase
+class PetstoreTest extends TestCase
 {
     private function fileToArray($filename)
     {
@@ -65,7 +66,7 @@ class PetstoreTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($headers->has('x-expires'));
 
         $headers->set('x-expires', $expires);
-        $this->assertEquals(1, count($headers->toArray()));
+        $this->assertCount(1, $headers->toArray());
         $this->assertTrue($headers->has('x-expires'));
     }
 

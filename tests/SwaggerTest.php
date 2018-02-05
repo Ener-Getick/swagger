@@ -12,8 +12,9 @@
 namespace EXSyst\Component\Swagger\tests;
 
 use EXSyst\Component\Swagger\Swagger;
+use PHPUnit\Framework\TestCase;
 
-class SwaggerTest extends \PHPUnit_Framework_TestCase
+class SwaggerTest extends TestCase
 {
     public function testVersion()
     {
