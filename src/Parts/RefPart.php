@@ -16,16 +16,16 @@ namespace EXSyst\Component\Swagger\Parts;
  */
 trait RefPart
 {
-    /** @var string */
+    /** @var string|null */
     private $ref;
 
-    private function mergeRef(array $data, $overwrite)
+    private function mergeRef(array $data, bool $overwrite)
     {
         $this->ref = $data['$ref'] ?? null;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getRef()
     {
@@ -34,17 +34,15 @@ trait RefPart
 
     /**
      * @param string|null $ref
-     *
-     * @return $this
      */
-    public function setRef($ref)
+    public function setRef(string $ref = null): self
     {
         $this->ref = $ref;
 
         return $this;
     }
 
-    public function hasRef()
+    public function hasRef(): bool
     {
         return null !== $this->ref;
     }

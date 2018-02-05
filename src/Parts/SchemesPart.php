@@ -18,7 +18,7 @@ trait SchemesPart
 {
     private $schemes = [];
 
-    private function mergeSchemes(array $data, $overwrite)
+    private function mergeSchemes(array $data, bool $overwrite)
     {
         foreach ($data['schemes'] ?? [] as $scheme) {
             $this->schemes[$scheme] = true;
@@ -27,10 +27,8 @@ trait SchemesPart
 
     /**
      * Return schemes.
-     *
-     * @return array
      */
-    public function getSchemes()
+    public function getSchemes(): array
     {
         return array_keys($this->schemes);
     }

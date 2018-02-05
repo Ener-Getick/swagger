@@ -18,10 +18,10 @@ use EXSyst\Component\Swagger\Collections\Parameters;
  */
 trait ParametersPart
 {
-    /** @var Parameters */
+    /** @var Parameters|null */
     private $parameters;
 
-    private function mergeParameters(array $data, $overwrite)
+    private function mergeParameters(array $data, bool $overwrite)
     {
         if (isset($data['parameters'])) {
             $this->getParameters()->merge($data['parameters'], $overwrite);
@@ -30,10 +30,8 @@ trait ParametersPart
 
     /**
      * Return parameters.
-     *
-     * @return Parameters
      */
-    public function getParameters()
+    public function getParameters(): Parameters
     {
         if (null === $this->parameters) {
             $this->parameters = new Parameters();

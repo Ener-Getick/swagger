@@ -18,7 +18,7 @@ trait ExtensionPart
 {
     private $extensions = [];
 
-    private function mergeExtensions(array $data, $overwrite)
+    private function mergeExtensions(array $data, bool $overwrite)
     {
         foreach ($data as $name => $value) {
             if (0 === strpos($name, 'x-')) {
@@ -32,7 +32,7 @@ trait ExtensionPart
      *
      * @return array
      */
-    public function getExtensions()
+    public function getExtensions(): array
     {
         return $this->extensions;
     }

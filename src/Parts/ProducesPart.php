@@ -18,7 +18,7 @@ trait ProducesPart
 {
     private $produces = [];
 
-    private function mergeProduces(array $data, $overwrite)
+    private function mergeProduces(array $data, bool $overwrite)
     {
         foreach ($data['produces'] ?? [] as $produce) {
             $this->produces[$produce] = true;
@@ -27,10 +27,8 @@ trait ProducesPart
 
     /**
      * Return produces.
-     *
-     * @return array
      */
-    public function getProduces()
+    public function getProduces(): array
     {
         return array_keys($this->produces);
     }

@@ -18,10 +18,10 @@ use EXSyst\Component\Swagger\Collections\Responses;
  */
 trait ResponsesPart
 {
-    /** @var Responses */
+    /** @var Responses|null */
     private $responses;
 
-    private function mergeResponses(array $data, $overwrite)
+    private function mergeResponses(array $data, bool $overwrite)
     {
         if (isset($data['responses'])) {
             $this->getResponses()->merge($data['responses'], $overwrite);
@@ -30,10 +30,8 @@ trait ResponsesPart
 
     /**
      * Return responses.
-     *
-     * @return Responses
      */
-    public function getResponses()
+    public function getResponses(): Responses
     {
         if (null === $this->responses) {
             $this->responses = new Responses();

@@ -18,7 +18,7 @@ use EXSyst\Component\Swagger\Util\MergeHelper;
  */
 trait RequiredPart
 {
-    /** @var bool */
+    /** @var bool|null */
     private $required;
 
     private function mergeRequired(array $data, bool $overwrite)
@@ -27,7 +27,7 @@ trait RequiredPart
     }
 
     /**
-     * @return bool
+     * @return bool|null
      */
     public function getRequired()
     {
@@ -35,11 +35,9 @@ trait RequiredPart
     }
 
     /**
-     * @param bool $required
-     *
-     * @return $this
+     * @param bool|null $required
      */
-    public function setRequired($required)
+    public function setRequired(bool $required = null): self
     {
         $this->required = $required;
 

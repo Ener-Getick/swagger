@@ -18,7 +18,7 @@ use EXSyst\Component\Swagger\Util\MergeHelper;
  */
 trait UrlPart
 {
-    /** @var string */
+    /** @var string|null */
     private $url;
 
     private function mergeUrl(array $data, bool $overwrite)
@@ -27,7 +27,7 @@ trait UrlPart
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getUrl()
     {
@@ -36,10 +36,8 @@ trait UrlPart
 
     /**
      * @param string $url
-     *
-     * @return $this
      */
-    public function setUrl($url)
+    public function setUrl(string $url = null): self
     {
         $this->url = $url;
 

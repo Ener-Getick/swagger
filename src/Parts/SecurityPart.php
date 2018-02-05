@@ -34,10 +34,7 @@ trait SecurityPart
         return $this->security;
     }
 
-    /**
-     * @return $this
-     */
-    public function setSecurity(array $security = null)
+    public function setSecurity(array $security = null): self
     {
         $this->security = $security;
 

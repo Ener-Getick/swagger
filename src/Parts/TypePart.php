@@ -73,7 +73,7 @@ trait TypePart
         }
     }
 
-    protected function doExportType()
+    protected function doExportType(): array
     {
         $return = [];
         foreach ($this->getTypeFields() as $field) {
@@ -85,7 +85,24 @@ trait TypePart
 
     private function getTypeFields(): array
     {
-        return ['type', 'format', 'collectionFormat', 'default', 'maximum', 'exclusiveMaximum', 'minimum', 'exclusiveMinimum', 'maxLength', 'minLength', 'pattern', 'maxItems', 'minItems', 'uniqueItems', 'enum', 'multipleOf'];
+        return [
+            'type',
+            'format',
+            'collectionFormat',
+            'default',
+            'maximum',
+            'exclusiveMaximum',
+            'minimum',
+            'exclusiveMinimum',
+            'maxLength',
+            'minLength',
+            'pattern',
+            'maxItems',
+            'minItems',
+            'uniqueItems',
+            'enum',
+            'multipleOf',
+        ];
     }
 
     /**
@@ -98,10 +115,8 @@ trait TypePart
 
     /**
      * @param string|null $type
-     *
-     * @return $this
      */
-    public function setType($type)
+    public function setType($type): self
     {
         $this->type = $type;
 
@@ -120,10 +135,8 @@ trait TypePart
      * Sets the extending format for the type.
      *
      * @param string|null $format
-     *
-     * @return $this
      */
-    public function setFormat($format)
+    public function setFormat($format): self
     {
         $this->format = $format;
 
@@ -152,10 +165,8 @@ trait TypePart
      *
      *
      * @param string|null $collectionFormat
-     *
-     * @return $this
      */
-    public function setCollectionFormat($collectionFormat)
+    public function setCollectionFormat($collectionFormat): self
     {
         $this->collectionFormat = $collectionFormat;
 
@@ -172,10 +183,8 @@ trait TypePart
 
     /**
      * @param mixed|null $default
-     *
-     * @return $this
      */
-    public function setDefault($default)
+    public function setDefault($default): self
     {
         $this->default = $default;
 
@@ -192,10 +201,8 @@ trait TypePart
 
     /**
      * @param float|null $maximum
-     *
-     * @return $this
      */
-    public function setMaximum($maximum)
+    public function setMaximum($maximum): self
     {
         $this->maximum = $maximum;
 
@@ -212,10 +219,8 @@ trait TypePart
 
     /**
      * @param bool|null $exclusiveMaximum
-     *
-     * @return $this
      */
-    public function setExclusiveMaximum($exclusiveMaximum)
+    public function setExclusiveMaximum($exclusiveMaximum): self
     {
         $this->exclusiveMaximum = $exclusiveMaximum;
 
@@ -232,10 +237,8 @@ trait TypePart
 
     /**
      * @param float|null $minimum
-     *
-     * @return $this
      */
-    public function setMinimum($minimum)
+    public function setMinimum($minimum): self
     {
         $this->minimum = $minimum;
 
@@ -272,10 +275,8 @@ trait TypePart
 
     /**
      * @param int|null $maxLength
-     *
-     * @return $this
      */
-    public function setMaxLength($maxLength)
+    public function setMaxLength($maxLength): self
     {
         $this->maxLength = $maxLength;
 
@@ -292,10 +293,8 @@ trait TypePart
 
     /**
      * @param int|null $minLength
-     *
-     * @return $this
      */
-    public function setMinLength($minLength)
+    public function setMinLength($minLength): self
     {
         $this->minLength = $minLength;
 
@@ -312,10 +311,8 @@ trait TypePart
 
     /**
      * @param string|null $pattern
-     *
-     * @return $this
      */
-    public function setPattern($pattern)
+    public function setPattern($pattern): self
     {
         $this->pattern = $pattern;
 
@@ -332,10 +329,8 @@ trait TypePart
 
     /**
      * @param int|null $maxItems
-     *
-     * @return $this
      */
-    public function setMaxItems($maxItems)
+    public function setMaxItems($maxItems): self
     {
         $this->maxItems = $maxItems;
 
@@ -352,10 +347,8 @@ trait TypePart
 
     /**
      * @param int|null $minItems
-     *
-     * @return $this
      */
-    public function setMinItems($minItems)
+    public function setMinItems($minItems): self
     {
         $this->minItems = $minItems;
 
@@ -372,10 +365,8 @@ trait TypePart
 
     /**
      * @param bool|null $uniqueItems
-     *
-     * @return $this
      */
-    public function setUniqueItems($uniqueItems)
+    public function setUniqueItems($uniqueItems): self
     {
         $this->uniqueItems = $uniqueItems;
 
@@ -392,10 +383,8 @@ trait TypePart
 
     /**
      * @param mixed $enum
-     *
-     * @return $this
      */
-    public function setEnum($enum)
+    public function setEnum($enum): self
     {
         $this->enum = $enum;
 
@@ -412,10 +401,8 @@ trait TypePart
 
     /**
      * @param float|null $multipleOf
-     *
-     * @return $this
      */
-    public function setMultipleOf($multipleOf)
+    public function setMultipleOf($multipleOf): self
     {
         $this->multipleOf = $multipleOf;
 

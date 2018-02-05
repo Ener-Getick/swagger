@@ -17,9 +17,9 @@ namespace EXSyst\Component\Swagger\Util;
 class MergeHelper
 {
     /**
-     * @param string|int|null $original
-     * @param string|int|null $external
-     * @param bool            $overwrite
+     * @param string|int|array|null $original
+     * @param string|int|array|null $external
+     * @param bool                  $overwrite
      */
     public static function mergeFields(&$original, $external, $overwrite)
     {

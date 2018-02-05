@@ -18,7 +18,7 @@ use EXSyst\Component\Swagger\Util\MergeHelper;
  */
 trait DescriptionPart
 {
-    /** @var string */
+    /** @var string|null */
     private $description;
 
     private function mergeDescription(array $data, bool $overwrite)
@@ -27,7 +27,7 @@ trait DescriptionPart
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getDescription()
     {
@@ -39,7 +39,7 @@ trait DescriptionPart
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setDescription(string $description = null): self
     {
         $this->description = $description;
 

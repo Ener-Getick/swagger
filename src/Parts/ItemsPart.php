@@ -21,7 +21,7 @@ trait ItemsPart
     /** @var Items|null */
     private $items;
 
-    private function mergeItems(array $data, $overwrite)
+    private function mergeItems(array $data, bool $overwrite)
     {
         if (isset($data['items'])) {
             $this->getItems()->merge($data['items'], $overwrite);
@@ -30,10 +30,8 @@ trait ItemsPart
 
     /**
      * Returns the items.
-     *
-     * @return Items
      */
-    public function getItems()
+    public function getItems(): Items
     {
         if (null === $this->items) {
             $this->items = new Items();

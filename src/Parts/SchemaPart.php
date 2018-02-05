@@ -18,20 +18,17 @@ use EXSyst\Component\Swagger\Schema;
  */
 trait SchemaPart
 {
-    /** @var Schema */
+    /** @var Schema|null */
     private $schema;
 
-    private function mergeSchema(array $data, $overwrite)
+    private function mergeSchema(array $data, bool $overwrite)
     {
         if (isset($data['schema'])) {
             $this->getSchema()->merge($data['schema'], $overwrite);
         }
     }
 
-    /**
-     * @return Schema
-     */
-    public function getSchema()
+    public function getSchema(): Schema
     {
         if (null === $this->schema) {
             $this->schema = new Schema();

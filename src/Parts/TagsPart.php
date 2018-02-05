@@ -20,7 +20,7 @@ trait TagsPart
 {
     private $tags = [];
 
-    private function mergeTags(array $data, $overwrite)
+    private function mergeTags(array $data, bool $overwrite)
     {
         foreach ($data['tags'] ?? [] as $value) {
             $tag = new Tag($value);
@@ -30,15 +30,13 @@ trait TagsPart
 
     /**
      * Return tags.
-     *
-     * @return array
      */
-    public function getTags()
+    public function getTags(): array
     {
         return array_values($this->tags);
     }
 
-    protected function exportTags()
+    protected function exportTags(): array
     {
         $out = [];
         foreach ($this->tags as $tag) {

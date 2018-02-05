@@ -18,9 +18,10 @@ use EXSyst\Component\Swagger\ExternalDocs;
  */
 trait ExternalDocsPart
 {
+    /** @var ExternalDocs|null */
     private $externalDocs;
 
-    private function mergeExternalDocs(array $data, $overwrite)
+    private function mergeExternalDocs(array $data, bool $overwrite)
     {
         if (isset($data['externalDocs'])) {
             $this->getExternalDocs()->merge($data['externalDocs']);
@@ -30,7 +31,7 @@ trait ExternalDocsPart
     /**
      * @return ExternalDocs
      */
-    public function getExternalDocs()
+    public function getExternalDocs(): ExternalDocs
     {
         if (null === $this->externalDocs) {
             $this->externalDocs = new ExternalDocs();
@@ -39,12 +40,7 @@ trait ExternalDocsPart
         return $this->externalDocs;
     }
 
-    /**
-     * @param ExternalDocs $externalDocs
-     *
-     * @return $this
-     */
-    public function setExternalDocs(ExternalDocs $externalDocs)
+    public function setExternalDocs(ExternalDocs $externalDocs): self
     {
         $this->externalDocs = $externalDocs;
 
