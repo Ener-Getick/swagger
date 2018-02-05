@@ -37,7 +37,7 @@ final class Info extends AbstractModel
     /** @var string */
     private $version;
 
-    public function __construct($data = [])
+    public function __construct(array $data = [])
     {
         $this->contact = new Contact();
         $this->license = new License();
@@ -58,7 +58,7 @@ final class Info extends AbstractModel
         $this->mergeExtensions($data, $overwrite);
     }
 
-    protected function doExport()
+    protected function doExport(): array
     {
         return [
             'title' => $this->title,
@@ -80,10 +80,8 @@ final class Info extends AbstractModel
 
     /**
      * @param string|null $title
-     *
-     * @return $this
      */
-    public function setTitle($title)
+    public function setTitle($title): self
     {
         $this->title = $title;
 
@@ -100,10 +98,8 @@ final class Info extends AbstractModel
 
     /**
      * @param string|null $terms
-     *
-     * @return Info
      */
-    public function setTerms($terms)
+    public function setTerms($terms): self
     {
         $this->termsOfService = $terms;
 
@@ -139,7 +135,7 @@ final class Info extends AbstractModel
      *
      * @return Info
      */
-    public function setVersion($version)
+    public function setVersion($version): self
     {
         $this->version = $version;
 

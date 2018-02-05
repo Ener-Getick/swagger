@@ -46,7 +46,7 @@ final class Operation extends AbstractModel
     /** @var bool */
     private $deprecated;
 
-    public function __construct($data = [])
+    public function __construct(array $data = [])
     {
         $this->merge($data);
     }
@@ -69,7 +69,7 @@ final class Operation extends AbstractModel
         $this->mergeTags($data, $overwrite);
     }
 
-    protected function doExport()
+    protected function doExport(): array
     {
         return [
             'summary' => $this->getSummary(),
@@ -97,10 +97,8 @@ final class Operation extends AbstractModel
 
     /**
      * @param string $summary
-     *
-     * @return $this
      */
-    public function setSummary($summary)
+    public function setSummary($summary): self
     {
         $this->summary = $summary;
 
@@ -117,10 +115,8 @@ final class Operation extends AbstractModel
 
     /**
      * @param string $description
-     *
-     * @return Operation
      */
-    public function setDescription($description)
+    public function setDescription($description): self
     {
         $this->description = $description;
 
@@ -137,10 +133,8 @@ final class Operation extends AbstractModel
 
     /**
      * @param string $operationId
-     *
-     * @return $this
      */
-    public function setOperationId($operationId)
+    public function setOperationId($operationId): self
     {
         $this->operationId = $operationId;
 
@@ -157,10 +151,8 @@ final class Operation extends AbstractModel
 
     /**
      * @param bool $deprecated
-     *
-     * @return $this
      */
-    public function setDeprecated($deprecated)
+    public function setDeprecated($deprecated): self
     {
         $this->deprecated = $deprecated;
 

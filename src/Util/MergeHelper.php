@@ -24,9 +24,9 @@ class MergeHelper
     public static function mergeFields(&$original, $external, $overwrite)
     {
         if ($overwrite) {
-            $original = null !== $external ? $external : $original;
+            $original = $external ?? $original;
         } else {
-            $original = null === $original ? $external : $original;
+            $original = $original ?? $external;
         }
     }
 }

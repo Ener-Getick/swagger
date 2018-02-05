@@ -23,7 +23,7 @@ final class ExternalDocs extends AbstractModel
     use UrlPart;
     use ExtensionPart;
 
-    public function __construct($data = [])
+    public function __construct(array $data = [])
     {
         $this->merge($data);
     }
@@ -35,7 +35,7 @@ final class ExternalDocs extends AbstractModel
         $this->mergeUrl($data, $overwrite);
     }
 
-    protected function doExport()
+    protected function doExport(): array
     {
         return [
             'description' => $this->description,

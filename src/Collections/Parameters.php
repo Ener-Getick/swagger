@@ -23,7 +23,7 @@ final class Parameters extends AbstractModel implements \IteratorAggregate
 
     private $parameters = [];
 
-    public function __construct($data = [])
+    public function __construct(array $data = [])
     {
         $this->merge($data);
     }
@@ -38,7 +38,7 @@ final class Parameters extends AbstractModel implements \IteratorAggregate
         }
     }
 
-    protected function doExport()
+    protected function doExport(): array
     {
         if ($this->hasRef()) {
             return ['$ref' => $this->getRef()];
@@ -49,11 +49,6 @@ final class Parameters extends AbstractModel implements \IteratorAggregate
 
     /**
      * Searches whether a parameter with the given unique combination exists.
-     *
-     * @param string      $name
-     * @param string|null $in
-     *
-     * @return bool
      */
     public function has(string $name, string $in = null): bool
     {
@@ -65,10 +60,9 @@ final class Parameters extends AbstractModel implements \IteratorAggregate
     public function get(string $name, string $in = null): Parameter
     {
         if (!$this->has($name, $in)) {
-            $this->add(new Parameter([
-                'name' => $name,
-                'in' => $in,
-            ]));
+            $this->add(
+                new Parameter(['name' => $name, 'in' => $in])
+            );
         }
 
         $id = $in ? $name.'/'.$in : $name;
@@ -78,12 +72,8 @@ final class Parameters extends AbstractModel implements \IteratorAggregate
 
     /**
      * Adds a parameter.
-     *
-     * @param Parameter $parameter
-     *
-     * @return Parameters
      */
-    public function add(Parameter $parameter)
+    public function add(Parameter $parameter): self
     {
         $this->parameters[$this->getIdentifier($parameter)] = $parameter;
 
@@ -92,12 +82,8 @@ final class Parameters extends AbstractModel implements \IteratorAggregate
 
     /**
      * Removes a parameter.
-     *
-     * @param Parameter $parameter
-     *
-     * @return Parameters
      */
-    public function remove(Parameter $parameter)
+    public function remove(Parameter $parameter): self
     {
         unset($this->parameters[$this->getIdentifier($parameter)]);
 
@@ -113,7 +99,7 @@ final class Parameters extends AbstractModel implements \IteratorAggregate
         return $parameter->getName().'/'.$parameter->getIn();
     }
 
-    public function getIterator()
+    public function getIterator(): \ArrayIterator
     {
         return new \ArrayIterator(array_values($this->parameters));
     }

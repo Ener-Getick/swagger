@@ -25,7 +25,7 @@ final class License extends AbstractModel
     /** @var string */
     private $name;
 
-    public function __construct($data = [])
+    public function __construct(array $data = [])
     {
         $this->merge($data);
     }
@@ -38,7 +38,7 @@ final class License extends AbstractModel
         $this->mergeUrl($data, $overwrite);
     }
 
-    protected function doExport()
+    protected function doExport(): array
     {
         return [
             'name' => $this->name,
@@ -56,10 +56,8 @@ final class License extends AbstractModel
 
     /**
      * @param string $name
-     *
-     * @return $this
      */
-    public function setName($name)
+    public function setName($name): self
     {
         $this->name = $name;
 

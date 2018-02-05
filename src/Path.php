@@ -21,7 +21,7 @@ final class Path extends AbstractModel
 
     private $operations = [];
 
-    public function __construct($data = [])
+    public function __construct(array $data = [])
     {
         $this->merge($data);
     }
@@ -37,7 +37,7 @@ final class Path extends AbstractModel
         $this->mergeParameters($data, $overwrite);
     }
 
-    protected function doExport()
+    protected function doExport(): array
     {
         return array_merge($this->operations, array('parameters' => $this->getParameters()));
     }
@@ -49,10 +49,6 @@ final class Path extends AbstractModel
 
     /**
      * Gets the operation for the given method, creates one if none exists.
-     *
-     * @param string $method
-     *
-     * @return Operation
      */
     public function getOperation(string $method): Operation
     {
@@ -65,13 +61,8 @@ final class Path extends AbstractModel
 
     /**
      * Sets the operation for a method.
-     *
-     * @param string    $method
-     * @param Operation $operation
-     *
-     * @return Path
      */
-    public function setOperation(string $method, Operation $operation)
+    public function setOperation(string $method, Operation $operation): self
     {
         $this->operations[$method] = $operation;
 
@@ -85,12 +76,8 @@ final class Path extends AbstractModel
 
     /**
      * Removes an operation for the given method.
-     *
-     * @param string $method
-     *
-     * @return Path
      */
-    public function removeOperation(string $method)
+    public function removeOperation(string $method): self
     {
         unset($this->operations[$method]);
 

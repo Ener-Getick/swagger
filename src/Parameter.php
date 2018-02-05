@@ -39,7 +39,7 @@ final class Parameter extends AbstractModel
     /** @var bool|null */
     private $allowEmptyValue;
 
-    public function __construct($data = [])
+    public function __construct(array $data = [])
     {
         $data = $this->normalize($data);
         $this->merge($data);
@@ -67,21 +67,24 @@ final class Parameter extends AbstractModel
         $this->mergeType($data, $overwrite);
     }
 
-    protected function doExport()
+    protected function doExport(): array
     {
         if ($this->hasRef()) {
             return ['$ref' => $this->getRef()];
         }
 
-        return array_merge([
-            'name' => $this->name,
-            'in' => $this->in,
-            'allowEmptyValue' => $this->allowEmptyValue,
-            'required' => $this->required,
-            'description' => $this->description,
-            'schema' => $this->schema,
-            'items' => $this->items,
-        ], $this->doExportType());
+        return array_merge(
+            [
+                'name' => $this->name,
+                'in' => $this->in,
+                'allowEmptyValue' => $this->allowEmptyValue,
+                'required' => $this->required,
+                'description' => $this->description,
+                'schema' => $this->schema,
+                'items' => $this->items,
+            ],
+            $this->doExportType()
+        );
     }
 
     /**
@@ -114,10 +117,8 @@ final class Parameter extends AbstractModel
      * Default value is `false`.
      *
      * @param bool $allowEmptyValue
-     *
-     * @return Parameter
      */
-    public function setAllowEmptyValue($allowEmptyValue)
+    public function setAllowEmptyValue($allowEmptyValue): self
     {
         $this->allowEmptyValue = $allowEmptyValue;
 

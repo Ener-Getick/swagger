@@ -62,12 +62,12 @@ final class Swagger extends AbstractModel
      *
      * @return static
      */
-    public static function fromFile($filename)
+    public static function fromFile(string $filename): self
     {
         return new static(json_decode(file_get_contents($filename), true));
     }
 
-    public function __construct($data = [])
+    public function __construct(array $data = [])
     {
         $this->info = new Info();
         $this->definitions = new Definitions();
@@ -109,7 +109,7 @@ final class Swagger extends AbstractModel
         }
     }
 
-    protected function doExport()
+    protected function doExport(): array
     {
         return [
             'swagger' => '2.0',
@@ -133,7 +133,7 @@ final class Swagger extends AbstractModel
     /**
      * @return string
      */
-    public function getVersion()
+    public function getVersion(): string
     {
         return '2.0';
     }
@@ -156,10 +156,8 @@ final class Swagger extends AbstractModel
 
     /**
      * @param string $host
-     *
-     * @return $this
      */
-    public function setHost($host)
+    public function setHost($host): self
     {
         $this->host = $host;
 
@@ -220,10 +218,8 @@ final class Swagger extends AbstractModel
 
     /**
      * @param array $parameters
-     *
-     * @return $this
      */
-    public function setParameters(array $parameters)
+    public function setParameters(array $parameters): self
     {
         $this->parameters = $parameters;
 

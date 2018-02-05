@@ -30,7 +30,7 @@ final class Response extends AbstractModel
     /** @var Headers */
     private $headers;
 
-    public function __construct($data = [])
+    public function __construct(array $data = [])
     {
         $this->headers = new Headers();
 
@@ -52,7 +52,7 @@ final class Response extends AbstractModel
         $this->mergeSchema($data, $overwrite);
     }
 
-    protected function doExport()
+    protected function doExport(): array
     {
         if ($this->hasRef()) {
             return ['$ref' => $this->getRef()];

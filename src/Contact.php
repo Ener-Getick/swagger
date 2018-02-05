@@ -29,7 +29,7 @@ final class Contact extends AbstractModel
     /** @var string */
     private $email;
 
-    public function __construct($data = [])
+    public function __construct(array $data = [])
     {
         $this->merge($data);
     }
@@ -40,11 +40,10 @@ final class Contact extends AbstractModel
         MergeHelper::mergeFields($this->url, $data['url'] ?? null, $overwrite);
         MergeHelper::mergeFields($this->email, $data['email'] ?? null, $overwrite);
 
-        // extensions
         $this->mergeExtensions($data, $overwrite);
     }
 
-    protected function doExport()
+    protected function doExport(): array
     {
         return [
             'name' => $this->name,
@@ -63,10 +62,8 @@ final class Contact extends AbstractModel
 
     /**
      * @param string $name
-     *
-     * @return $this
      */
-    public function setName($name)
+    public function setName($name): self
     {
         $this->name = $name;
 
@@ -83,10 +80,8 @@ final class Contact extends AbstractModel
 
     /**
      * @param string $url
-     *
-     * @return $this
      */
-    public function setUrl($url)
+    public function setUrl($url): self
     {
         $this->url = $url;
 
@@ -103,10 +98,8 @@ final class Contact extends AbstractModel
 
     /**
      * @param string $email
-     *
-     * @return $this
      */
-    public function setEmail($email)
+    public function setEmail($email): self
     {
         $this->email = $email;
 
