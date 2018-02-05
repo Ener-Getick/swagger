@@ -49,28 +49,39 @@ final class Parameters extends AbstractModel implements \IteratorAggregate
 
     /**
      * Searches whether a parameter with the given unique combination exists.
+     *
+     * @param string      $name
+     * @param string|null $in
+     *
+     * @return bool
      */
     public function has(string $name, string $in = null): bool
     {
         $id = $in ? $name.'/'.$in : $name;
+
         return isset($this->parameters[$id]);
     }
 
     public function get(string $name, string $in = null): Parameter
     {
         if (!$this->has($name, $in)) {
-            $this->add($parameter = new Parameter([
+            $this->add(new Parameter([
                 'name' => $name,
                 'in' => $in,
             ]));
         }
 
         $id = $in ? $name.'/'.$in : $name;
+
         return $this->parameters[$id];
     }
 
     /**
      * Adds a parameter.
+     *
+     * @param Parameter $parameter
+     *
+     * @return Parameters
      */
     public function add(Parameter $parameter)
     {
@@ -81,6 +92,10 @@ final class Parameters extends AbstractModel implements \IteratorAggregate
 
     /**
      * Removes a parameter.
+     *
+     * @param Parameter $parameter
+     *
+     * @return Parameters
      */
     public function remove(Parameter $parameter)
     {

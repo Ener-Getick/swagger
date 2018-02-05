@@ -70,6 +70,8 @@ final class Tag extends AbstractModel
 
     /**
      * @param string|array $data
+     *
+     * @return array
      */
     protected function normalize($data): array
     {

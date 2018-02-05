@@ -18,7 +18,7 @@ use EXSyst\Component\Swagger\Util\MergeHelper;
  */
 trait SecurityPart
 {
-    /** @var string */
+    /** @var array */
     private $security;
 
     private function mergeSecurity(array $data, bool $overwrite)

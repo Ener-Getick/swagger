@@ -39,6 +39,10 @@ final class Definitions extends AbstractModel implements \IteratorAggregate
 
     /**
      * Returns the schema for the given field.
+     *
+     * @param string $name
+     *
+     * @return Schema
      */
     public function get(string $name): Schema
     {
@@ -51,6 +55,11 @@ final class Definitions extends AbstractModel implements \IteratorAggregate
 
     /**
      * Sets the field.
+     *
+     * @param string $name
+     * @param Schema $schema
+     *
+     * @return Definitions
      */
     public function set(string $name, Schema $schema)
     {
@@ -61,6 +70,10 @@ final class Definitions extends AbstractModel implements \IteratorAggregate
 
     /**
      * Removes the given field.
+     *
+     * @param string $name
+     *
+     * @return Definitions
      */
     public function remove(string $name)
     {
@@ -71,6 +84,10 @@ final class Definitions extends AbstractModel implements \IteratorAggregate
 
     /**
      * Returns definitions has a schema with the given name.
+     *
+     * @param string $name
+     *
+     * @return bool
      */
     public function has(string $name): bool
     {

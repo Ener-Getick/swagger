@@ -68,7 +68,10 @@ final class Headers extends AbstractModel implements \IteratorAggregate
     /**
      * Sets the header.
      *
+     * @param string $name
      * @param Header $header
+     *
+     * @return Headers
      */
     public function set($name, Header $header)
     {
@@ -81,6 +84,8 @@ final class Headers extends AbstractModel implements \IteratorAggregate
      * Removes the given header.
      *
      * @param string $header
+     *
+     * @return Headers
      */
     public function remove($header)
     {

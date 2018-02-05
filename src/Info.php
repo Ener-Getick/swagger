@@ -100,6 +100,8 @@ final class Info extends AbstractModel
 
     /**
      * @param string|null $terms
+     *
+     * @return Info
      */
     public function setTerms($terms)
     {
@@ -134,6 +136,8 @@ final class Info extends AbstractModel
 
     /**
      * @param string|null $version
+     *
+     * @return Info
      */
     public function setVersion($version)
     {

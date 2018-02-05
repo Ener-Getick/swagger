@@ -46,6 +46,10 @@ final class Paths extends AbstractModel implements \IteratorAggregate
 
     /**
      * Returns whether a path with the given name exists.
+     *
+     * @param string $path
+     *
+     * @return bool
      */
     public function has(string $path): bool
     {
@@ -54,6 +58,10 @@ final class Paths extends AbstractModel implements \IteratorAggregate
 
     /**
      * Returns the path info for the given path.
+     *
+     * @param string $path
+     *
+     * @return Path
      */
     public function get(string $path): Path
     {
@@ -67,6 +75,9 @@ final class Paths extends AbstractModel implements \IteratorAggregate
     /**
      * Sets the path.
      *
+     * @param string $path
+     * @param Path   $model
+     *
      * @return $this
      */
     public function set(string $path, Path $model)
@@ -78,6 +89,10 @@ final class Paths extends AbstractModel implements \IteratorAggregate
 
     /**
      * Removes the given path.
+     *
+     * @param string $path
+     *
+     * @return Paths
      */
     public function remove(string $path)
     {

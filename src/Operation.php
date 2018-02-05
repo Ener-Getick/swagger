@@ -88,7 +88,7 @@ final class Operation extends AbstractModel
     }
 
     /**
-     * @return the string
+     * @return string
      */
     public function getSummary()
     {
@@ -117,6 +117,8 @@ final class Operation extends AbstractModel
 
     /**
      * @param string $description
+     *
+     * @return Operation
      */
     public function setDescription($description)
     {

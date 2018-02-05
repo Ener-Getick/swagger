@@ -114,6 +114,8 @@ final class Parameter extends AbstractModel
      * Default value is `false`.
      *
      * @param bool $allowEmptyValue
+     *
+     * @return Parameter
      */
     public function setAllowEmptyValue($allowEmptyValue)
     {

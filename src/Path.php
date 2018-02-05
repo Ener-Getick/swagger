@@ -49,6 +49,10 @@ final class Path extends AbstractModel
 
     /**
      * Gets the operation for the given method, creates one if none exists.
+     *
+     * @param string $method
+     *
+     * @return Operation
      */
     public function getOperation(string $method): Operation
     {
@@ -61,6 +65,11 @@ final class Path extends AbstractModel
 
     /**
      * Sets the operation for a method.
+     *
+     * @param string    $method
+     * @param Operation $operation
+     *
+     * @return Path
      */
     public function setOperation(string $method, Operation $operation)
     {
@@ -76,6 +85,10 @@ final class Path extends AbstractModel
 
     /**
      * Removes an operation for the given method.
+     *
+     * @param string $method
+     *
+     * @return Path
      */
     public function removeOperation(string $method)
     {

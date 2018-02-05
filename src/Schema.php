@@ -38,8 +38,6 @@ class Schema extends AbstractModel
     /** @var string */
     private $title;
 
-    private $xml;
-
     /** @var string */
     private $example;
 
@@ -142,6 +140,8 @@ class Schema extends AbstractModel
 
     /**
      * @param string|null $discriminator
+     *
+     * @return Schema
      */
     public function setDiscriminator($discriminator)
     {
@@ -160,6 +160,8 @@ class Schema extends AbstractModel
 
     /**
      * @param bool|null $readOnly
+     *
+     * @return Schema
      */
     public function setReadOnly($readOnly)
     {
@@ -178,6 +180,8 @@ class Schema extends AbstractModel
 
     /**
      * @param string|null $example
+     *
+     * @return Schema
      */
     public function setExample($example)
     {

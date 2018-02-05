@@ -313,7 +313,7 @@ trait TypePart
     /**
      * @param string|null $pattern
      *
-     * @return $thi
+     * @return $this
      */
     public function setPattern($pattern)
     {

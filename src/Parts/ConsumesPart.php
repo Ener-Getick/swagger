@@ -27,8 +27,6 @@ trait ConsumesPart
 
     /**
      * Return consumes.
-     *
-     * @return Set
      */
     public function getConsumes()
     {

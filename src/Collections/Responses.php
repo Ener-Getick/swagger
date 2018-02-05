@@ -56,7 +56,7 @@ final class Responses extends AbstractModel implements \IteratorAggregate
     }
 
     /**
-     * Returns the reponse info for the given code.
+     * Returns the response info for the given code.
      *
      * @param string $code
      *
@@ -74,8 +74,10 @@ final class Responses extends AbstractModel implements \IteratorAggregate
     /**
      * Sets the response.
      *
-     * @param string $code
+     * @param string   $code
      * @param Response $response
+     *
+     * @return Responses
      */
     public function set($code, Response $response)
     {
@@ -85,9 +87,11 @@ final class Responses extends AbstractModel implements \IteratorAggregate
     }
 
     /**
-     * Removes the given repsonse.
+     * Removes the given response.
      *
      * @param string $code
+     *
+     * @return Responses
      */
     public function remove($code)
     {
