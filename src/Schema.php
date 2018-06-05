@@ -95,6 +95,18 @@ class Schema extends AbstractModel
             return ['$ref' => $this->getRef()];
         }
 
+        /*
+         * if additionalProperties has no special types/refs, it should return {} or true
+         *  according to https://swagger.io/docs/specification/data-models/dictionaries/
+         * Without the following code, it returns a [], which is wrong/not valid.
+         */
+        if ($this->additionalProperties instanceof self) {
+            $this->additionalProperties = $this->additionalProperties->toArray();
+            if ($this->additionalProperties === []) {
+                $this->additionalProperties = new \stdClass();
+            }
+        }
+
         return array_merge([
             'title' => $this->title,
             'discriminator' => $this->discriminator,
