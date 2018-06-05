@@ -56,19 +56,19 @@ final class Info extends AbstractObject implements ExtensibleInterface
             'version' => $this->version,
         ];
 
-        if ($this->description) {
+        if (null !== $this->description) {
             $return['description'] = $this->description;
         }
 
-        if ($this->termsOfService) {
+        if (null !== $this->termsOfService) {
             $return['termsOfService'] = $this->termsOfService;
         }
 
-        if ($this->contact) {
+        if (null !== $this->contact) {
             $return['contact'] = $this->contact;
         }
 
-        if ($this->license) {
+        if (null !== $this->license) {
             $return['license'] = $this->license;
         }
 

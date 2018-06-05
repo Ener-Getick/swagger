@@ -35,7 +35,7 @@ final class Header extends AbstractObject
             'schema' => $this->schema,
         ];
 
-        if ($this->description) {
+        if (null !== $this->description) {
             $return['description'] = $this->description;
         }
 

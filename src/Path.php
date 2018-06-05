@@ -78,11 +78,11 @@ final class Path extends AbstractObject
     {
         $return = [];
 
-        if ($this->summary) {
+        if (null !== $this->summary) {
             $return['summary'] = $this->summary;
         }
 
-        if ($this->description) {
+        if (null !== $this->description) {
             $return['description'] = $this->description;
         }
 

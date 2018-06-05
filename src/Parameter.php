@@ -27,10 +27,10 @@ final class Parameter extends AbstractObject
     /** @var string */
     private $in;
 
-    /** @var string */
+    /** @var string|null */
     private $description;
 
-    /** @var bool */
+    /** @var bool|null */
     private $required;
 
     /** @var bool|null */
@@ -42,13 +42,13 @@ final class Parameter extends AbstractObject
     /** @var Schema|Reference */
     private $schema;
 
-    /** @var string */
+    /** @var string|null */
     private $style;
 
-    /** @var bool */
+    /** @var bool|null */
     private $explode;
 
-    /** @var bool */
+    /** @var bool|null */
     private $allowReserved;
 
     private $content; // TODO:
@@ -78,7 +78,7 @@ final class Parameter extends AbstractObject
             'in'   => $this->in,
         ];
 
-        if ($this->description) {
+        if (null !== $this->description) {
             $return['description'] = $this->description;
         }
 
@@ -94,11 +94,11 @@ final class Parameter extends AbstractObject
             $return['allowEmptyValue'] = $this->allowEmptyValue;
         }
 
-        if ($this->schema) {
+        if (null !== $this->schema) {
             $return['schema'] = $this->schema;
         }
 
-        if ($this->style) {
+        if (null !== $this->style) {
             $return['style'] = $this->style;
         }
 

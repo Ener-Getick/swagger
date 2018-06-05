@@ -52,11 +52,11 @@ final class Link extends AbstractObject implements ExtensibleInterface
     {
         $return = [];
 
-        if ($this->operationRef) {
+        if (null !== $this->operationRef) {
             $return['operationRef'] = $this->operationRef;
         }
 
-        if ($this->operationId) {
+        if (null !== $this->operationId) {
             $return['operationId'] = $this->operationId;
         }
 
@@ -64,15 +64,15 @@ final class Link extends AbstractObject implements ExtensibleInterface
             $return['parameters'] = $this->parameters;
         }
 
-        if ($this->requestBody) {
+        if (null !== $this->requestBody) {
             $return['requestBody'] = $this->requestBody;
         }
 
-        if ($this->description) {
+        if (null !== $this->description) {
             $return['description'] = $this->description;
         }
 
-        if ($this->server) {
+        if (null !== $this->server) {
             $return['server'] = $this->server;
         }
 

@@ -35,7 +35,7 @@ final class License extends AbstractObject implements ExtensibleInterface
             'name' => $this->name,
         ];
 
-        if ($this->url) {
+        if (null !== $this->url) {
             $return['url'] = $this->url;
         }
 

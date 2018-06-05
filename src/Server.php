@@ -20,7 +20,7 @@ final class Server extends AbstractObject
     /** @var string */
     private $url;
 
-    /** @var string */
+    /** @var string|null */
     private $description;
 
     /** @var ServerVariables */
@@ -41,7 +41,7 @@ final class Server extends AbstractObject
             'url' => $this->url,
         ];
 
-        if ($this->description) {
+        if (null !== $this->description) {
             $return['description'] = $this->description;
         }
 
@@ -64,7 +64,7 @@ final class Server extends AbstractObject
         return $this;
     }
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }

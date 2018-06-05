@@ -47,7 +47,7 @@ final class Response extends AbstractObject
     {
         $return = [];
 
-        if ($this->description) {
+        if (null !== $this->description) {
             $return['description'] = $this->description;
         }
 

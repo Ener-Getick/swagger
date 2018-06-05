@@ -39,7 +39,7 @@ final class MediaType extends AbstractObject
     {
         $return = [];
 
-        if ($this->schema) {
+        if (null !== $this->schema) {
             $return['schema'] = $this->schema;
         }
 
@@ -47,7 +47,7 @@ final class MediaType extends AbstractObject
             $return['examples'] = $this->examples;
         }
 
-        if ($this->example) {
+        if (null !== $this->example) {
             $return['example'] = $this->example;
         }
 

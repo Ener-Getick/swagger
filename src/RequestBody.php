@@ -41,7 +41,7 @@ final class RequestBody extends AbstractObject
             'content' => $this->content,
         ];
 
-        if ($this->description) {
+        if (null !== $this->description) {
             $return['description'] = $this->description;
         }
 

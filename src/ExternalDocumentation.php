@@ -24,7 +24,7 @@ final class ExternalDocumentation extends AbstractObject implements ExtensibleIn
     public function __construct(array $data)
     {
         $this->url = $data['url'];
-        $this->description = $data['description'];
+        $this->description = $data['description'] ?? null;
 
         $this->mergeExtensions($data);
     }
@@ -35,7 +35,7 @@ final class ExternalDocumentation extends AbstractObject implements ExtensibleIn
             'url' => $this->url,
         ];
 
-        if ($this->description) {
+        if (null !== $this->description) {
             $return['description'] = $this->description;
         }
 

@@ -41,19 +41,19 @@ final class Example extends AbstractObject
     {
         $return = [];
 
-        if ($this->summary) {
+        if (null !== $this->summary) {
             $return['summary'] = $this->summary;
         }
 
-        if ($this->description) {
+        if (null !== $this->description) {
             $return['description'] = $this->description;
         }
 
-        if ($this->value) {
+        if (null !== $this->value) {
             $return['value'] = $this->value;
         }
 
-        if ($this->externalValue) {
+        if (null !== $this->externalValue) {
             $return['externalValue'] = $this->externalValue;
         }
 

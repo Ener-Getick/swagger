@@ -74,15 +74,15 @@ final class Operation extends AbstractObject
             $return['tags'] = $this->tags;
         }
 
-        if ($this->summary) {
+        if (null !== $this->summary) {
             $return['summary'] = $this->summary;
         }
 
-        if ($this->description) {
+        if (null !== $this->description) {
             $return['description'] = $this->description;
         }
 
-        if ($this->operationId) {
+        if (null !== $this->operationId) {
             $return['operationId'] = $this->operationId;
         }
 
@@ -90,7 +90,7 @@ final class Operation extends AbstractObject
             $return['parameters'] = $this->parameters;
         }
 
-        if ($this->requestBody) {
+        if (null !== $this->requestBody) {
             $return['requestBody'] = $this->requestBody;
         }
 

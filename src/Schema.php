@@ -128,15 +128,15 @@ class Schema extends AbstractObject
             $return['required'] = $this->required;
         }
 
-        if ($this->type) {
+        if (null !== $this->type) {
             $return['type'] = $this->type;
         }
 
-        if ($this->description) {
+        if (null !== $this->description) {
             $return['description'] = $this->description;
         }
 
-        if ($this->items) {
+        if (null !== $this->items) {
             $return['items'] = $this->items;
         }
 
@@ -144,23 +144,23 @@ class Schema extends AbstractObject
             $return['properties'] = $this->properties;
         }
 
-        if ($this->format) {
+        if (null !== $this->format) {
             $return['format'] = $this->format;
         }
 
-        if ($this->example) {
+        if (null !== $this->example) {
             $return['example'] = $this->example;
         }
 
-        if (!is_null($this->additionalProperties)) {
+        if (null !== $this->additionalProperties) {
             $return['additionalProperties'] = $this->additionalProperties;
         }
 
-        if (!is_null($this->default)) {
+        if (null !== $this->default) {
             $return['default'] = $this->default;
         }
 
-        if (!is_null($this->allOf)) {
+        if (null !== $this->allOf) {
             $return['allOf'] = $this->allOf;
         }
 

@@ -18,10 +18,10 @@ final class Tag extends AbstractObject
     /** @var string */
     private $name;
 
-    /** @var string */
+    /** @var string|null */
     private $description;
 
-    /** @var ExternalDocumentation */
+    /** @var ExternalDocumentation|null */
     private $externalDocs;
 
     public function __construct($data)
@@ -37,11 +37,11 @@ final class Tag extends AbstractObject
             'name' => $this->name,
         ];
 
-        if ($this->description) {
+        if (null !== $this->description) {
             $return['description'] = $this->description;
         }
 
-        if ($this->externalDocs) {
+        if (null !== $this->externalDocs) {
             $return['externalDocs'] = $this->externalDocs;
         }
 

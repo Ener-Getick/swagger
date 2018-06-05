@@ -37,15 +37,15 @@ final class Contact extends AbstractObject
     {
         $return = [];
 
-        if ($this->name) {
+        if (null !== $this->name) {
             $return['name'] = $this->name;
         }
 
-        if ($this->url) {
+        if (null !== $this->url) {
             $return['url'] = $this->url;
         }
 
-        if ($this->email) {
+        if (null !== $this->email) {
             $return['email'] = $this->email;
         }
 
