@@ -18,7 +18,7 @@ final class Header extends AbstractObject
     /** @var string */
     private $description;
 
-    /** @var Schema|Reference */
+    /** @var Schema|Reference|null */
     private $schema;
 
     public function __construct(array $data)
@@ -40,5 +40,35 @@ final class Header extends AbstractObject
         }
 
         return $return;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Schema|Reference|null
+     */
+    public function getSchema()
+    {
+        return $this->schema;
+    }
+
+    /**
+     * @var Schema|Reference|null $schema
+     */
+    public function setSchema($schema): self
+    {
+        $this->schema = $schema;
+
+        return $this;
     }
 }

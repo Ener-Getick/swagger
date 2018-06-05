@@ -49,4 +49,28 @@ final class Components extends AbstractObject
 
         return $return;
     }
+
+    public function getSchemas(): Schemas
+    {
+        return $this->schemas;
+    }
+
+    public function setSchemas(Schemas $schemas): self
+    {
+        $this->schemas = $schemas;
+
+        return $this;
+    }
+
+    public function getLinks(): Links
+    {
+        return $this->links;
+    }
+
+    public function setLinks(Links $links): self
+    {
+        $this->links = $links;
+
+        return $this;
+    }
 }

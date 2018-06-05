@@ -30,25 +30,25 @@ final class Parameter extends AbstractObject
     /** @var string|null */
     private $description;
 
-    /** @var bool|null */
+    /** @var bool */
     private $required;
 
-    /** @var bool|null */
+    /** @var bool */
     private $deprecated;
 
-    /** @var bool|null */
+    /** @var bool */
     private $allowEmptyValue;
 
-    /** @var Schema|Reference */
+    /** @var Schema|Reference|null */
     private $schema;
 
     /** @var string|null */
     private $style;
 
-    /** @var bool|null */
+    /** @var bool */
     private $explode;
 
-    /** @var bool|null */
+    /** @var bool */
     private $allowReserved;
 
     private $content; // TODO:
@@ -62,9 +62,9 @@ final class Parameter extends AbstractObject
         $this->name = $data['name'];
         $this->in = $data['in'];
         $this->description = $data['description'] ?? null;
-        $this->required = $this->in === self::IN_PATH ? true : ($data['required'] ?? null);
-        $this->deprecated = $data['deprecated'] ?? null;
-        $this->allowEmptyValue = $this->in === self::IN_QUERY ? ($data['allowEmptyValue'] ?? null) : null;
+        $this->required = $this->in === self::IN_PATH ? true : ($data['required'] ?? false);
+        $this->deprecated = $data['deprecated'] ?? false;
+        $this->allowEmptyValue = $this->in === self::IN_QUERY ? ($data['allowEmptyValue'] ?? false) : false;
         $this->style = $data['style'] ?? null;
         $this->schema = $data['schema'] ?? null;
 
@@ -82,11 +82,11 @@ final class Parameter extends AbstractObject
             $return['description'] = $this->description;
         }
 
-        if (!is_null($this->required)) {
+        if ($this->required) {
             $return['required'] = $this->required;
         }
 
-        if ($this->deprecated === true) {
+        if ($this->deprecated) {
             $return['deprecated'] = $this->deprecated;
         }
 
@@ -123,5 +123,109 @@ final class Parameter extends AbstractObject
         return $this->in;
     }
 
-    // TODO: Getters/Setters
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function isRequired(): bool
+    {
+        return $this->required;
+    }
+
+    public function setRequired(bool $required): self
+    {
+        if (self::IN_PATH === $this->in) {
+            throw new \LogicException(sprintf('%s::$required is not writable for path parameters.', __CLASS__));
+        }
+
+        $this->required = $required;
+
+        return $this;
+    }
+
+    public function getDeprecated(): bool
+    {
+        return $this->deprecated;
+    }
+
+    public function setDeprecated(bool $deprecated): self
+    {
+        $this->deprecated = $deprecated;
+
+        return $this;
+    }
+
+    public function getAllowEmptyValue(): bool
+    {
+        return $this->allowEmptyValue;
+    }
+
+    public function setAllowEmptyValue(bool $allowEmptyValue): self
+    {
+        $this->allowEmptyValue = $allowEmptyValue;
+
+        return $this;
+    }
+
+    /**
+     * @return Schema|Reference|null
+     */
+    public function getSchema()
+    {
+        return $this->schema;
+    }
+
+    /**
+     * @var Schema|Reference|null $schema
+     */
+    public function setSchema($schema): self
+    {
+        $this->schema = $schema;
+
+        return $this;
+    }
+
+    public function getStyle(): ?string
+    {
+        return $this->style;
+    }
+
+    public function setStyle(?string $style): self
+    {
+        $this->style = $style;
+
+        return $this;
+    }
+
+    public function getExplode(): bool
+    {
+        return $this->explode;
+    }
+
+    public function setExplode(bool $explode): self
+    {
+        $this->explode = $explode;
+
+        return $this;
+    }
+
+    public function getAllowReserved(): bool
+    {
+        return $this->allowReserved;
+    }
+
+    public function setAllowReserved(bool $allowReserved): self
+    {
+        $this->allowReserved = $allowReserved;
+
+        return $this;
+    }
 }

@@ -59,4 +59,58 @@ final class Example extends AbstractObject
 
         return $return;
     }
+
+    public function getSummary(): ?string
+    {
+        return $this->summary;
+    }
+
+    public function setSummary(?string $summary): self
+    {
+        $this->summary = $summary;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * @var mixed $value
+     */
+    public function setValue($value): self
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    public function getExternalValue(): ?string
+    {
+        return $this->externalValue;
+    }
+
+    public function setExternalValue(?string $externalValue): self
+    {
+        $this->externalValue = $externalValue;
+
+        return $this;
+    }
 }

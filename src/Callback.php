@@ -31,4 +31,22 @@ final class Callback extends AbstractObject implements ExtensibleInterface
     {
         return $this->callbacks;
     }
+
+    /**
+     * @return Path[]
+     */
+    public function getCallbacks(): array
+    {
+        return $this->callbacks;
+    }
+
+    /**
+     * @var Path[] $callbacks
+     */
+    public function setCallbacks(array $callbacks): self
+    {
+        $this->callbacks = $callbacks;
+
+        return $this;
+    }
 }

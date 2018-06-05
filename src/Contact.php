@@ -15,13 +15,13 @@ final class Contact extends AbstractObject
 {
     use ExtensionPart;
 
-    /** @var string */
+    /** @var string|null */
     private $name;
 
-    /** @var string */
+    /** @var string|null */
     private $url;
 
-    /** @var string */
+    /** @var string|null */
     private $email;
 
     public function __construct(array $data = [])
@@ -50,5 +50,41 @@ final class Contact extends AbstractObject
         }
 
         return $return;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(?string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(?string $url): self
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
     }
 }

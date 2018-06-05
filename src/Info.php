@@ -15,27 +15,27 @@ final class Info extends AbstractObject implements ExtensibleInterface
 {
     use ExtensionPart;
 
-    /** @var string */
+    /** @var string|null */
     private $title;
 
-    /** @var string */
+    /** @var string|null */
     private $description;
 
-    /** @var string */
+    /** @var string|null */
     private $termsOfService;
 
-    /** @var Contact */
+    /** @var Contact|null */
     private $contact;
 
-    /** @var License */
+    /** @var License|null */
     private $license;
 
-    /** @var string */
+    /** @var string|null */
     private $version;
 
     public function __construct(array $data)
     {
-        $this->title = $data['title'];
+        $this->title = $data['title'] ?? null;
         $this->description = $data['description'] ?? null;
         $this->termsOfService = $data['termsOfService'] ?? null;
         if (isset($data['contact'])) {
@@ -44,7 +44,7 @@ final class Info extends AbstractObject implements ExtensibleInterface
         if (isset($data['license'])) {
             $this->license = new License($data['license']);
         }
-        $this->version = $data['version'];
+        $this->version = $data['version'] ?? null;
 
         $this->mergeExtensions($data);
     }
@@ -73,5 +73,77 @@ final class Info extends AbstractObject implements ExtensibleInterface
         }
 
         return $return;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getTermsOfService(): ?string
+    {
+        return $this->termsOfService;
+    }
+
+    public function setTermsOfService(?string $termsOfService): self
+    {
+        $this->termsOfService = $termsOfService;
+
+        return $this;
+    }
+
+    public function getContact(): ?Contact
+    {
+        return $this->contact;
+    }
+
+    public function setContact(?string $contact): self
+    {
+        $this->contact = $contact;
+
+        return $this;
+    }
+
+    public function getLicence(): ?Licence
+    {
+        return $this->licence;
+    }
+
+    public function setLicence(?Licence $licence): self
+    {
+        $this->licence = $licence;
+
+        return $this;
+    }
+
+    public function getVersion(): ?string
+    {
+        return $this->version;
+    }
+
+    public function setVersion(?string $version): self
+    {
+        $this->version = $version;
+
+        return $this;
     }
 }
