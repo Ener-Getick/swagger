@@ -31,4 +31,4 @@ before_install:
 
 install: composer update $COMPOSER_FLAGS
 
-script: vendor/bin/phpunit
+script: ./phpunit
