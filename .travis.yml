@@ -25,6 +25,7 @@ matrix:
       env: COMPOSER_FLAGS="--prefer-lowest"
     - php: 7.4
       env: COMPOSER_FLAGS="--prefer-lowest"
+    - php: nightly
 
 before_install:
   - composer self-update
